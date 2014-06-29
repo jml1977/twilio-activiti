@@ -1,0 +1,17 @@
+/*body { padding-top: 50px; }*/
+
+.btn-getwork {
+	height: 450px;
+	width: 100%;
+	font-size: 500%;
+}
+
+.skill-notifier {
+	line-height: 250%;
+	font-size: 125%;
+	padding-left: 10px;
+}
+
+.act-btn {
+	float: left;
+}

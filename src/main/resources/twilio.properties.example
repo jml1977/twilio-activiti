@@ -1,0 +1,6 @@
+twilio.accountSid=AC01234567890123456789012345678901
+twilio.authToken=01234567890123456789012345678901
+
+database.url=jdbc:mysql://localhost:33066/activiti
+database.username=root
+database.password=root

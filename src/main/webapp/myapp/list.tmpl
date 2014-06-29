@@ -1,0 +1,38 @@
+<html>
+<title>Test</title>
+<script src="../static/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+<script src="../static/js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" href="../static/css/bootstrap.css" type="text/css" media="screen" title="no title" charset="utf-8">
+
+<body>
+
+	<div class="container">
+			<table class="table">
+				<tr>
+					<th>Id</th>
+					<th>ProcessId</th>
+					<th>Name</th>
+					<th>From</th>
+					<th>Body</th>
+					<th>Action</th>
+				</tr>
+				{{#tasks}}
+				<tr>
+					<td>{{id}}</td>
+					<td>{{ProcessInstanceId}}</td>
+					<td>{{Name}}</td>
+					<td>{{processVariables.From}}</td>
+					<td>{{processVariables.Body}}</td>
+					<td>
+						<form action="../tasks/{{id}}/submit" method="POST">
+							<button>Submit</button>
+						</form>
+					</td>
+				</tr>
+				{{/tasks}}
+			</table>		
+	</div>
+
+</body>
+
+</html>
