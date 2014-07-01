@@ -42,7 +42,7 @@
 		<property name="databaseType" value="${DATABASE_TYPE}" />
 		<property name="dataSource" ref="dataSource" />
 		<property name="transactionManager" ref="transactionManager" />
-		<property name="databaseSchemaUpdate" value="true" />
+		<property name="databaseSchemaUpdate" value="none" />
 		<property name="deploymentResources" value="classpath*:MyTestProcess.bpmn" />
 	</bean>
 
