@@ -12,22 +12,24 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd">
 
 
-	<context:property-placeholder location="classpath:twilio.properties" />
+	<context:property-placeholder system-properties-mode="ENVIRONMENT"/>
+<!-- 	<context:property-placeholder location="classpath:twilio.properties"
+		system-properties-mode="ENVIRONMENT" /> -->
 
 	<bean id="twilioSendSmsServiceTask"
 		class="com.github.jml1977.activiti.service.TwilioSendSmsServiceTask">
-		<property name="authToken" value="${twilio.authToken}" />
+		<property name="authToken" value="${TWILIO_AUTH_TOKEN}" />
 	</bean>
 
 	<mvc:annotation-driven />
 
 	<context:annotation-config />
 
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="${database.url}" />
-		<property name="username" value="${database.username}" />
-		<property name="password" value="${database.password}" />
+	<bean id="dataSource" class="com.github.jml1977.heroku.HerokuBasicDataSource">
+		<property name="driverClassName" value="${JDBC_DRIVER_CLASS}" />
+		<property name="url" value="${DATABASE_URL}" />
+<!-- 		<property name="username" value="${database.username}" />
+		<property name="password" value="${database.password}" /> -->
 		<property name="defaultAutoCommit" value="false" />
 	</bean>
 
@@ -37,7 +39,7 @@
 	</bean>
 
 	<bean id="processEngineConfiguration" class="org.activiti.spring.SpringProcessEngineConfiguration">
-		<property name="databaseType" value="${database.type}" />
+		<property name="databaseType" value="${DATABASE_TYPE}" />
 		<property name="dataSource" ref="dataSource" />
 		<property name="transactionManager" ref="transactionManager" />
 		<property name="databaseSchemaUpdate" value="true" />
