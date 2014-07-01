@@ -26,10 +26,16 @@ DATABASE_TYPE=mysql
 ```
 
 For Postgres:
-
 ```
 DATABASE_URL -> already set by Heroku
 heroku config:set TWILIO_AUTH_TOKEN=
 heroku config:set JDBC_DRIVER_CLASS="org.postgresql.Driver"
 heroku config:set DATABASE_TYPE="postgres"
+```
+
+Deploy SQL to Heroku:
+```
+heroku pg:psql < git/Activiti/modules/activiti-engine/src/main/resources/org/activiti/db/create/activiti.postgres.create.engine.sql
+heroku pg:psql < git/Activiti/modules/activiti-engine/src/main/resources/org/activiti/db/create/activiti.postgres.create.history.sql
+heroku pg:psql < git/Activiti/modules/activiti-engine/src/main/resources/org/activiti/db/create/activiti.postgres.create.identity.sql
 ```
