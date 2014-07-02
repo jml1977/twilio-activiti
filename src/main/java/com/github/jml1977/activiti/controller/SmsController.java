@@ -26,6 +26,7 @@ public class SmsController {
 		StartProcessCommand cmd = new StartProcessCommand("myProcess", map);
 		String ret = cmd.execute();
 		TwiMLResponse response = new TwiMLResponse();
-		return response.toXML();
+		// return response.toXML();
+		return "";
 	}
 }
